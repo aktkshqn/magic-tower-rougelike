@@ -1,6 +1,8 @@
 import os
 import time
 
+from .cui_assets import TITLE_ART
+from .cui_styles import BOLD, RED,style_text
 from .messages import get_message
 
 def clear_screen():
@@ -25,3 +27,15 @@ def select_title_menu():
         print(
             get_message("menu.error.invalid_choice")
         )
+
+
+
+def show_title():
+    clear_screen()
+
+    print("\a", end="", flush=True)
+
+    decorated_title = style_text(TITLE_ART, BOLD, RED)
+
+    print(decorated_title)
+    time.sleep(3)
