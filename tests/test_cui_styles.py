@@ -1,4 +1,4 @@
-from magic_tower.cui_styles import(
+from magic_tower.ui.cui.styles import(
     BOLD,
     RED,
     RESET,

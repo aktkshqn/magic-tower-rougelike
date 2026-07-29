@@ -1,6 +1,6 @@
 import pytest
 
-from magic_tower.messages import get_message
+from magic_tower.data.messages import get_message
 
 
 def test_get_message_returns_fixed_message():
