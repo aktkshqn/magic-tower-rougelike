@@ -27,6 +27,9 @@ MESSAGE_TEMPLATES = {
     # タイトルメニュー
     "menu.prompt.select": "番号を入力せよ：",
     "menu.error.invalid_choice": "表示された番号から選んでください。",
+    "menu.confirm.selected": "「{option_label}」でよろしいですか？",
+    "menu.confirm.yes": "はい",
+    "menu.confirm.no": "いいえ",
 
     # ゲーム進行
     "game.info.start": "新しい冒険を始めます。",

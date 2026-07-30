@@ -19,8 +19,14 @@ class FakeUI:
             ("message", message_key, values)
         )
 
+    def render_scene(self, scene):
+        self.events.append(
+            ("scene", scene)
+        )
+
 from magic_tower.application import (
     wait_for_title_choice,
+    play_scenes,
 )
 
 def test_wait_for_title_choice_returns_invalid_input():
@@ -37,4 +43,18 @@ def test_wait_for_title_choice_returns_invalid_input():
             {}
         ),
         ("input", "menu.prompt.select"),
+    ]
+
+def test_play_scenes_renders_scenes_in_order():
+    ui = FakeUI([])
+    scenes = [
+        {"id": "intro.first"},
+        {"id": "intro.second"},
+    ]
+
+    play_scenes(ui, scenes)
+
+    assert ui.events == [
+        ("scene", {"id": "intro.first"}),
+        ("scene", {"id": "intro.second"}),
     ]

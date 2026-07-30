@@ -1,6 +1,6 @@
 from .data.scenes import INTRO_SCENES
 
-def play_scene(ui, scenes):
+def play_scenes(ui, scenes):
     for scene in scenes:
         ui.render_scene(scene)
 
@@ -18,7 +18,7 @@ def wait_for_title_choice(ui):
         )
 
 def run_game(ui):
-    play_scene(
+    play_scenes(
         ui,
         INTRO_SCENES
     )
