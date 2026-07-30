@@ -18,7 +18,7 @@ def wait_for_title_choice(ui):
         )
 
 def run_game(ui):
-    ui.play_scenes(
+    play_scene(
         ui,
         INTRO_SCENES
     )
