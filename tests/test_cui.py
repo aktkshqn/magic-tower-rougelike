@@ -3,16 +3,16 @@ import time
 from magic_tower.ui.cui import adapter
 
 
-def test_show_message_displays_text(capsys, monkeypatch):
+def test_render_message_displays_text(capsys, monkeypatch):
     monkeypatch.setattr(time, "sleep", lambda seconds: None)
 
-    adapter.show_message("魔法の塔", speed=0.05)
+    adapter.render_message("魔法の塔", speed=0.05)
 
     captured = capsys.readouterr()
 
     assert captured.out == "魔法の塔\n"
 
-def test_play_scene_displays_all_lines(
+def test_render_scene_displays_all_lines(
     capsys,
     monkeypatch,
 ):
@@ -29,7 +29,7 @@ def test_play_scene_displays_all_lines(
         "clear": False,
     }
 
-    adapter.play_scene(scene)
+    adapter.render_scene(scene)
 
     captured = capsys.readouterr()
 
@@ -59,3 +59,15 @@ def test_select_title_menu_retries_invalid_input(
 
     assert result == 1
     assert "表示された番号から選んでください。" in captured.out
+
+def test_receive_input_returns_user_input(monkeypatch):
+    monkeypatch.setattr(
+        "builtins.input",
+        lambda prompt:"1",
+    )
+
+    result = adapter.receive_input(
+        "menu.prompt.select"
+    )
+
+    assert result == "1"

@@ -1,9 +1,8 @@
 from .adapter import (
     clear_screen,
     select_title_menu,
-    show_message,
-    play_scene,
-    play_intro,
+    render_scene,
+    render_message,
     show_title,
     show_system_message,
 )

@@ -3,15 +3,14 @@ import time
 
 from ...assets.ascii_art import TITLE_ART
 from ...data.messages import get_message
-from ...data.scenes import INTRO_SCENES
 from .styles import BOLD, BLUE,style_text
 
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
 
-def play_scene(scene):
+def render_scene(scene):
     for line in scene["lines"]:
-        show_message(
+        render_message(
             line,
             scene["speed"],
         )
@@ -21,17 +20,12 @@ def play_scene(scene):
     if scene["clear"]:
         clear_screen()
 
-def show_message(message, speed=0.05):
+def render_message(message, speed=0.05):
     for character in message:
         print(character, end="", flush=True)
         time.sleep(speed)
 
     print()
-
-def play_intro():
-    clear_screen()
-    for scene in INTRO_SCENES:
-        play_scene(scene)
 
 def show_title():
     clear_screen()
@@ -58,9 +52,9 @@ def select_title_menu():
 
 def show_system_message(message_key, **values):
     message = get_message(message_key, **values)
-    show_message(message)
+    render_message(message)
 
-def request_text(message_key):
-    prompt = get_message(message_key)
+def receive_input(prompt_key):
+    prompt = get_message(prompt_key)
 
     return input(prompt)
