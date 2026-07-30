@@ -37,7 +37,9 @@ MESSAGE_TEMPLATES = {
     # 冒険者作成
     "character.prompt.name": "目覚めた者の名前は...：",
     "character.error.empty_name": "名前を空にはできません。",
-    "character.success.created": "「{player_name}...」その名前で間違いないか",
+    "character.error.name_too_long": "名前は12文字以内で入力してください。",
+    "character.success.to_create": "「{player_name}...」その名前で間違いないか？",
+    "character.success.created": "冒険者「{player_name}」が誕生した！",
 
     # 探索
     "exploration.info.move": "{direction}へ進んだ。",

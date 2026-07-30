@@ -59,3 +59,8 @@ def select_title_menu():
 def show_system_message(message_key, **values):
     message = get_message(message_key, **values)
     show_message(message)
+
+def request_text(message_key):
+    prompt = get_message(message_key)
+
+    return input(prompt)

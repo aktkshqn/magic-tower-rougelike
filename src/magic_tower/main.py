@@ -1,5 +1,5 @@
 from .application import run_game
-from . import cui
+from .ui import cui
 
 def main():
     run_game(cui)
